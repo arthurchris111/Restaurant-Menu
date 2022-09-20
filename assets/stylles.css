@@ -1,0 +1,12 @@
+.hr{
+    height: 3px;
+    background-color: rgb(242, 167, 29)!important;
+}
+
+.container{
+    height: 100vh!important;
+}
+
+.btn{
+    border-color: rgb(242, 167, 29)!important;
+}
