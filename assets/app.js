@@ -98,3 +98,5 @@ const menu = [{
     quis nostrud exercitation ullamco`
     },
 ]
+
+const sectionCenter = document.getElementById("Centersection")
