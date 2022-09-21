@@ -99,4 +99,4 @@ const menu = [{
     },
 ]
 
-const sectionCenter = document.getElementById("Centersection")
+const sectionCenter = document.getElementById("sectionCenter")
