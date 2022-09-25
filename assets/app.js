@@ -117,9 +117,8 @@ buttons.forEach((button) => {
             if (menuItem.category === category) {
                 return menuItem;
             }
-
         })
-        console.log(menuCategory)
+        // console.log(menuCategory) 
         if (category === "all") {
             displayMenuItems(menu);
         } else {
