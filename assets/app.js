@@ -103,6 +103,11 @@ const menu = [{
 const sectionCenter = document.getElementById("sectionCenter")
 
 window.addEventListener("DOMContentLoaded", () => {
+    menuItems();
+})
+
+
+const menuItems = () => {
     let displayMenu = menu.map((item) => {
         // console.log(item)
         return `<div id="sectionCenter"
@@ -130,4 +135,4 @@ window.addEventListener("DOMContentLoaded", () => {
     displayMenu = displayMenu.join('')
     sectionCenter.innerHTML = displayMenu
     console.log(displayMenu)
-})
+}
