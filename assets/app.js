@@ -101,9 +101,18 @@ const menu = [{
 ]
 
 const sectionCenter = document.getElementById("sectionCenter")
+const filterButtons = document.querySelectorAll(".btn")
 
 window.addEventListener("DOMContentLoaded", () => {
     menuItems();
+
+})
+
+filterButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        console.log(e.currentTarget.dataset.id)
+
+    })
 })
 
 
@@ -122,7 +131,7 @@ const menuItems = () => {
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h6>${item.title}</h6>
-                                        <h6 class="amount">${item.price}</h6> 
+                                        <h6 class="amount">$${item.price }</h6> 
                                     </div>
                                     <hr class="mt-0 ">
                                     <p class="text-start">${item.description}</p>
@@ -134,5 +143,5 @@ const menuItems = () => {
     })
     displayMenu = displayMenu.join('')
     sectionCenter.innerHTML = displayMenu
-    console.log(displayMenu)
+    // console.log(displayMenu)
 }
