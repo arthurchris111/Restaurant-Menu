@@ -1,7 +1,7 @@
 const menu = [{
         id: 1,
         title: ' ButterMilk Pancakes',
-        category: 'breakfast',
+        category: "breakfast",
         price: 6.99,
         img: "./assets/images/pancake.jpg",
         description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, 
@@ -101,23 +101,36 @@ const menu = [{
 ]
 
 const sectionCenter = document.getElementById("sectionCenter")
-const filterButtons = document.querySelectorAll(".btn")
+const buttons = document.querySelectorAll(".btn")
 
 window.addEventListener("DOMContentLoaded", () => {
-    menuItems();
+    displayMenuItems(menu);
 
 })
 
-filterButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        console.log(e.currentTarget.dataset.id)
+buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        const category = event.currentTarget.dataset.id;
+        // console.log(category)
+        const menuCategory = menu.filter((menuItem) => {
+            // console.log(menuItem.category)
+            if (menuItem.category === category) {
+                return menuItem;
+            }
+
+        })
+        console.log(menuCategory)
+        if (category === "all") {
+            displayMenuItems(menu);
+        } else {
+            displayMenuItems(menuCategory);
+        }
 
     })
 })
 
-
-const menuItems = () => {
-    let displayMenu = menu.map((item) => {
+const displayMenuItems = (menuItems) => {
+    let displayMenu = menuItems.map((item) => {
         // console.log(item)
         return `<div id="sectionCenter"
                     class = "col col-lg-6 col-md-12 col-sm-12 d-flex justify-content-md-center justify-content-sm-center" >
