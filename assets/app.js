@@ -92,7 +92,7 @@ const menu = [{
     {
         id: 10,
         title: 'Godzilla Milks',
-        category: 'lunch',
+        category: 'shakes',
         price: 6.29,
         img: "./assets/images/dream.jpg",
         description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, 
@@ -111,19 +111,19 @@ window.addEventListener("DOMContentLoaded", () => {
 buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
         const category = event.currentTarget.dataset.id;
-        // console.log(category)
         const menuCategory = menu.filter((menuItem) => {
-            // console.log(menuItem.category)
-            if (menuItem.category === category) {
+
+            if (menuItem.category.toLowerCase() === category.toLowerCase()) {
                 return menuItem;
             }
         })
-        // console.log(menuCategory) 
+
         if (category === "all") {
-            displayMenuItems(menu);
+            displayMenuItems(menu)
         } else {
-            displayMenuItems(menuCategory);
+            displayMenuItems(menuCategory)
         }
+        console.log(menuCategory)
 
     })
 })
