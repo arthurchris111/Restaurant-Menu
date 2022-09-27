@@ -72,7 +72,7 @@ const menu = [{
     {
         id: 8,
         title: 'French Rice',
-        category: 'lunch',
+        category: 'breakfast',
         price: 7.99,
         img: "./assets/images/america.jpg",
         description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, 
@@ -91,8 +91,8 @@ const menu = [{
 
     {
         id: 10,
-        title: 'Godzilla Milks',
-        category: 'shakes',
+        title: 'Godzilla Milkshake',
+        category: 'shake',
         price: 6.29,
         img: "./assets/images/dream.jpg",
         description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, 
@@ -101,11 +101,15 @@ const menu = [{
 ]
 
 const sectionCenter = document.getElementById("sectionCenter")
-const buttons = document.querySelectorAll(".btn")
 const buttonsContainer = document.querySelector(".buttonsContainer")
 
 window.addEventListener("DOMContentLoaded", () => {
     displayMenuItems(menu);
+    displayMenuButtons();
+
+})
+
+const displayMenuButtons = () => {
 
     let categories = menu.reduce((values, item) => {
         if (!values.includes(item.category)) {
@@ -120,32 +124,33 @@ window.addEventListener("DOMContentLoaded", () => {
     }).join(" ")
     // console.log(categoryButtons)
     buttonsContainer.innerHTML = categoryButtons;
-})
+    const buttons = document.querySelectorAll(".btn")
 
+    buttons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const category = event.currentTarget.dataset.id;
+            const menuCategory = menu.filter((menuItem) => {
 
+                if (menuItem.category.toLowerCase() === category.toLowerCase()) {
+                    return menuItem;
+                }
+            })
 
-
-
-
-buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        const category = event.currentTarget.dataset.id;
-        const menuCategory = menu.filter((menuItem) => {
-
-            if (menuItem.category.toLowerCase() === category.toLowerCase()) {
-                return menuItem;
+            if (category === "all") {
+                displayMenuItems(menu)
+            } else {
+                displayMenuItems(menuCategory)
             }
+            console.log(menuCategory)
+
         })
-
-        if (category === "all") {
-            displayMenuItems(menu)
-        } else {
-            displayMenuItems(menuCategory)
-        }
-        console.log(menuCategory)
-
     })
-})
+}
+
+
+
+
+
 
 const displayMenuItems = (menuItems) => {
     let displayMenu = menuItems.map((item) => {
