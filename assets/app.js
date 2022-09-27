@@ -102,6 +102,7 @@ const menu = [{
 
 const sectionCenter = document.getElementById("sectionCenter")
 const buttons = document.querySelectorAll(".btn")
+const buttonsContainer = document.querySelector(".buttonsContainer")
 
 window.addEventListener("DOMContentLoaded", () => {
     displayMenuItems(menu);
@@ -112,9 +113,19 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         return values
     }, ["all"])
-    console.log(categories)
+    // console.log(categories)
+    const categoryButtons = categories.map((category) => {
+        return `<button type="button" class="btn btn-outline-secondary btn-sm shadow-none" data-id=${category}>${category}</button>`
 
+    }).join(" ")
+    // console.log(categoryButtons)
+    buttonsContainer.innerHTML = categoryButtons;
 })
+
+
+
+
+
 
 buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
