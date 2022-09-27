@@ -106,6 +106,14 @@ const buttons = document.querySelectorAll(".btn")
 window.addEventListener("DOMContentLoaded", () => {
     displayMenuItems(menu);
 
+    let categories = menu.reduce((values, item) => {
+        if (!values.includes(item.category)) {
+            values.push(item.category)
+        }
+        return values
+    }, ["all"])
+    console.log(categories)
+
 })
 
 buttons.forEach((button) => {
